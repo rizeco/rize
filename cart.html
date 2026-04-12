@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rize™ — Finalizar Pedido</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='8' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='1.5' fill='%23000'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+</head>
+<body>
+
+  <header class="header header--minimal" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="assets/images/logo-eye-black.png" alt="Rize™" class="header__logo-img logo-on-light" />
+        <img src="assets/images/logo-eye-white.png" alt="Rize™" class="header__logo-img logo-on-dark" />
+      </a>
+      <div class="header__actions">
+        <button class="header__icon-btn" id="themeToggle" aria-label="Tema">
+          <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="index.html" class="btn btn--ghost btn--sm">← Voltar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="cp" id="cartPageMain">
+    <div class="container">
+      <div class="cp__header">
+        <h1 class="cp__title">Finalizar<br /><em>Pedido</em></h1>
+        <p class="cp__sub mono-sm">Revise os itens e preencha seus dados.</p>
+      </div>
+
+      <!-- Empty -->
+      <div class="cp__empty" id="cpEmpty">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <p>Carrinho vazio.</p>
+        <a href="index.html#drop" class="btn btn--solid">Ver Drop 001</a>
+      </div>
+
+      <!-- Content -->
+      <div class="cp__layout" id="cpLayout" style="display:none">
+
+        <div class="cp__left">
+
+          <!-- Items -->
+          <div class="cp__section">
+            <h2 class="cp__section-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+              Seus itens
+            </h2>
+            <div id="cpItems"></div>
+          </div>
+
+          <!-- Form -->
+          <div class="cp__section">
+            <h2 class="cp__section-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Dados de entrega
+            </h2>
+
+            <div class="checkout-form">
+              <div class="f-row">
+                <div class="f-field">
+                  <label class="form-label" for="f-nome">Nome completo *</label>
+                  <input type="text" id="f-nome" class="form-input" placeholder="João Silva" autocomplete="name" />
+                </div>
+                <div class="f-field">
+                  <label class="form-label" for="f-cpf">CPF *</label>
+                  <input type="text" id="f-cpf" class="form-input" placeholder="000.000.000-00" maxlength="14" />
+                </div>
+              </div>
+              <div class="f-row">
+                <div class="f-field">
+                  <label class="form-label" for="f-tel">WhatsApp *</label>
+                  <input type="tel" id="f-tel" class="form-input" placeholder="(48) 99999-9999" autocomplete="tel" />
+                </div>
+                <div class="f-field">
+                  <label class="form-label" for="f-email">E-mail</label>
+                  <input type="email" id="f-email" class="form-input" placeholder="joao@email.com" autocomplete="email" />
+                </div>
+              </div>
+
+              <div class="f-divider"><span>Endereço</span></div>
+
+              <div class="f-row f-row--cep">
+                <div class="f-field">
+                  <label class="form-label" for="f-cep">CEP *</label>
+                  <div class="f-input-group">
+                    <input type="text" id="f-cep" class="form-input" placeholder="88000-000" maxlength="9" />
+                    <button type="button" class="f-cep-btn" id="cepBtn" title="Buscar CEP">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="f-field f-field--sm">
+                  <label class="form-label" for="f-uf">UF *</label>
+                  <input type="text" id="f-uf" class="form-input" placeholder="SC" maxlength="2" />
+                </div>
+              </div>
+
+              <div class="f-field">
+                <label class="form-label" for="f-cidade">Cidade *</label>
+                <input type="text" id="f-cidade" class="form-input" placeholder="Florianópolis" autocomplete="address-level2" />
+              </div>
+
+              <div class="f-row">
+                <div class="f-field f-field--grow">
+                  <label class="form-label" for="f-rua">Rua *</label>
+                  <input type="text" id="f-rua" class="form-input" placeholder="Rua das Flores" autocomplete="address-line1" />
+                </div>
+                <div class="f-field f-field--sm">
+                  <label class="form-label" for="f-num">Nº *</label>
+                  <input type="text" id="f-num" class="form-input" placeholder="123" />
+                </div>
+              </div>
+
+              <div class="f-row">
+                <div class="f-field">
+                  <label class="form-label" for="f-comp">Complemento</label>
+                  <input type="text" id="f-comp" class="form-input" placeholder="Apto 42" autocomplete="address-line2" />
+                </div>
+                <div class="f-field">
+                  <label class="form-label" for="f-bairro">Bairro *</label>
+                  <input type="text" id="f-bairro" class="form-input" placeholder="Centro" />
+                </div>
+              </div>
+
+              <div class="f-divider"><span>Observações</span></div>
+
+              <div class="f-field">
+                <label class="form-label" for="f-obs">Observações</label>
+                <textarea id="f-obs" class="form-input f-textarea" placeholder="Instruções especiais, ponto de referência..."></textarea>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.cp__left -->
+
+        <div class="cp__right">
+          <div class="order-summary" id="orderSummary">
+            <h2 class="order-summary__title">Order Summary</h2>
+            <div id="summaryItems" class="order-summary__items"></div>
+            <div class="order-summary__pricing">
+              <div class="order-summary__row">
+                <span>Subtotal</span>
+                <span id="summarySubtotal" class="mono-sm">R$ 0,00</span>
+              </div>
+              <div class="order-summary__row">
+                <span>Frete</span>
+                <span class="mono-sm">A combinar</span>
+              </div>
+              <div class="order-summary__row order-summary__row--total">
+                <span>Total</span>
+                <strong id="summaryTotal">R$ 0,00</strong>
+              </div>
+            </div>
+            <div class="order-summary__badges">
+              <div class="trust-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Pedido seguro via WhatsApp
+              </div>
+              <div class="trust-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Confirmação em até 2h
+              </div>
+            </div>
+            <button type="button" class="btn btn--whatsapp btn--full" id="waBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Enviar pedido via WhatsApp
+            </button>
+            <p class="order-summary__note">Você será redirecionado ao WhatsApp com o pedido completo.</p>
+          </div>
+        </div>
+
+      </div><!-- /.cp__layout -->
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/cart-page.js"></script>
+</body>
+</html>

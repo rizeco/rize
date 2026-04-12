@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rize™ — Drop 001</title>
+  <meta name="description" content="Rize. Always." />
+
+  <!-- Favicon: inline SVG eye -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='8' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='1.5' fill='%23000'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =====================
+       HEADER
+  ===================== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+
+      <a href="index.html" class="header__logo" aria-label="Rize™ Home">
+        <img src="assets/images/logo-eye-black.png" alt="Rize™" class="header__logo-img logo-on-light" />
+        <img src="assets/images/logo-eye-white.png" alt="Rize™" class="header__logo-img logo-on-dark" />
+      </a>
+
+      <nav class="header__nav" aria-label="Navegação principal">
+        <a href="#drop" class="header__nav-link">Drop 001</a>
+        <a href="#brand" class="header__nav-link">The Brand</a>
+        <a href="#vip" class="header__nav-link">VIP</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="header__icon-btn" id="themeToggle" aria-label="Alternar tema">
+          <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+          <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+
+        <button class="header__cart-btn header__icon-btn" id="cartToggle" aria-label="Carrinho">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="header__cart-badge" id="cartBadge" aria-live="polite">0</span>
+        </button>
+
+        <button class="header__burger-btn" id="menuToggle" aria-label="Menu" aria-expanded="false">
+          <span class="header__burger"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="header__mobile" id="mobileNav" aria-hidden="true">
+      <a href="#drop" class="header__mobile-link">Drop 001</a>
+      <a href="#brand" class="header__mobile-link">The Brand</a>
+      <a href="#vip" class="header__mobile-link">VIP</a>
+      <a href="cart.html" class="header__mobile-link">Finalizar pedido →</a>
+    </div>
+  </header>
+
+  <!-- =====================
+       HERO
+  ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero__noise" aria-hidden="true"></div>
+    <div class="hero__bg-word" aria-hidden="true">RIZE</div>
+
+    <div class="hero__body">
+      <div class="hero__top">
+        <span class="mono-tag">Drop 001 · Limited Edition</span>
+      </div>
+
+      <h1 class="hero__title">
+        <span class="hero__line js-reveal">RIZE.</span>
+        <span class="hero__line js-reveal">ALWAYS.</span>
+      </h1>
+
+      <p class="hero__sub js-reveal-fade">
+        Não é roupa.<br />É postura.
+      </p>
+
+      <div class="hero__actions js-reveal-fade" style="--d:.5s">
+        <a href="#drop" class="btn btn--solid">Shop Drop 001</a>
+        <a href="#brand" class="btn btn--ghost">The Brand</a>
+      </div>
+    </div>
+
+    <div class="hero__visual js-reveal-right">
+      <div class="hero__eye-frame">
+        <img src="assets/images/logo-eye-black.png" alt="Rize™ — The Eye" class="hero__eye-img logo-on-light" />
+        <img src="assets/images/logo-eye-white.png" alt="Rize™ — The Eye" class="hero__eye-img logo-on-dark" />
+      </div>
+      <div class="hero__slogan-card">
+        <span class="mono-tag">Rize. Always.</span>
+      </div>
+    </div>
+
+    <div class="hero__scroll-line" aria-hidden="true"></div>
+  </section>
+
+  <!-- =====================
+       TICKER
+  ===================== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>RIZE™</span><span>·</span><span>DROP 001</span><span>·</span>
+      <span>LIMITED EDITION</span><span>·</span><span>NO RESTOCK</span><span>·</span>
+      <span>RIZE. ALWAYS.</span><span>·</span><span>RIZE™</span><span>·</span>
+      <span>DROP 001</span><span>·</span><span>LIMITED EDITION</span><span>·</span>
+      <span>NO RESTOCK</span><span>·</span><span>RIZE. ALWAYS.</span><span>·</span>
+      <span>RIZE™</span><span>·</span><span>DROP 001</span><span>·</span>
+      <span>LIMITED EDITION</span><span>·</span><span>NO RESTOCK</span><span>·</span>
+      <span>RIZE. ALWAYS.</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- =====================
+       BRAND SECTION
+  ===================== -->
+  <section class="brand" id="brand">
+    <div class="container">
+      <div class="brand__grid">
+        <div class="brand__left js-sr">
+          <span class="section-label">The Brand</span>
+          <h2 class="brand__title">
+            Quem sabe,<br />sabe.
+          </h2>
+          <p class="brand__text">
+            A Rize não foi criada pra todo mundo.
+            Foi criada pra quem já está subindo —
+            em silêncio, sem plateia, sem parar.
+          </p>
+          <p class="brand__text">
+            A peça é o ponto de entrada.<br />
+            A mentalidade é o produto real.
+          </p>
+          <div class="brand__values">
+            <span class="value-tag">Ambição</span>
+            <span class="value-tag">Disciplina</span>
+            <span class="value-tag">Silêncio</span>
+            <span class="value-tag">Evolução</span>
+          </div>
+        </div>
+        <div class="brand__right js-sr" style="--d:.15s">
+          <div class="brand__eye-wrap">
+            <img src="assets/images/logo-eye-black.png" alt="" aria-hidden="true" class="brand__eye logo-on-light" />
+            <img src="assets/images/logo-eye-white.png" alt="" aria-hidden="true" class="brand__eye logo-on-dark" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       LOOKBOOK CAROUSEL
+  ===================== -->
+  <section class="lookbook" id="lookbook">
+    <div class="container">
+      <div class="lookbook__header js-sr">
+        <span class="section-label">Lookbook</span>
+        <h2 class="lookbook__title">Drop 001 — <em>In The Wild</em></h2>
+      </div>
+    </div>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack"></div>
+    </div>
+  </section>
+
+  <!-- =====================
+       SCARCITY
+  ===================== -->
+  <div class="scarcity-bar">
+    <div class="scarcity-bar__inner">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p><strong>Drop limitado.</strong> Sem reposição. Sem exceções.</p>
+    </div>
+  </div>
+
+  <!-- =====================
+       DROP / PRODUCTS
+  ===================== -->
+  <section class="drop" id="drop">
+    <div class="container">
+      <div class="drop__header js-sr">
+        <span class="section-label">Drop 001</span>
+        <h2 class="drop__title">The Collection</h2>
+        <p class="drop__sub">Duas peças. Uma postura.</p>
+      </div>
+
+      <div class="drop__grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- =====================
+       VIP GROUP
+  ===================== -->
+  <section class="vip" id="vip">
+    <div class="container">
+      <div class="vip__inner js-sr">
+        <div class="vip__left">
+          <span class="section-label">Acesso Exclusivo</span>
+          <h2 class="vip__title">VIP Group.</h2>
+          <p class="vip__text">
+            Cupons antes de todo mundo.<br />
+            Drops com aviso antecipado.<br />
+            Nada mais. Nada menos.
+          </p>
+        </div>
+        <div class="vip__right">
+          <div class="vip__form-wrap">
+            <div class="form-field">
+              <label class="form-label" for="vip-name">Nome</label>
+              <input type="text" id="vip-name" class="form-input" placeholder="Seu nome" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="vip-phone">WhatsApp</label>
+              <input type="tel" id="vip-phone" class="form-input" placeholder="(48) 99999-9999" />
+            </div>
+            <button type="button" class="btn btn--solid btn--full" id="vipBtn">
+              Entrar no grupo VIP
+            </button>
+            <p class="vip__disclaimer">Sem spam. Saída quando quiser.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       CLOSING CTA
+  ===================== -->
+  <section class="closing-cta">
+    <div class="closing-cta__bg-word" aria-hidden="true">ALWAYS</div>
+    <div class="container">
+      <div class="closing-cta__content js-sr">
+        <h2 class="closing-cta__title">RIZE.<br /><span>ALWAYS.</span></h2>
+        <a href="#drop" class="btn btn--solid btn--lg">Shop Drop 001</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       FOOTER
+  ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img src="assets/images/logo-eye-black.png" alt="Rize™" class="footer__logo logo-on-light" />
+          <img src="assets/images/logo-eye-white.png" alt="Rize™" class="footer__logo logo-on-dark" />
+          <p class="footer__slogan">Rize. Always.</p>
+        </div>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="#drop" class="footer__link">Drop 001</a>
+          <a href="#vip" class="footer__link">VIP</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="footer__link">Instagram</a>
+          <a href="cart.html" class="footer__link">Carrinho</a>
+        </nav>
+        <p class="footer__copy">© 2025 Rize™ — Streetwear</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================
+       CART DRAWER
+  ===================== -->
+  <div class="overlay" id="drawerOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrinho">
+    <div class="cart-drawer__header">
+      <h3 class="cart-drawer__title">Your Bag</h3>
+      <button class="cart-drawer__close icon-btn" id="cartClose" aria-label="Fechar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="cart-drawer__items" id="drawerItems">
+      <p class="cart-drawer__empty">Seu carrinho está vazio.</p>
+    </div>
+    <div class="cart-drawer__footer" id="drawerFooter" style="display:none">
+      <div class="cart-drawer__row">
+        <span class="mono-sm">Subtotal</span>
+        <span class="mono-sm bold" id="drawerTotal">R$ 0,00</span>
+      </div>
+      <a href="cart.html" class="btn btn--solid btn--full">Finalizar pedido →</a>
+      <p class="cart-drawer__note">Entrega via WhatsApp.</p>
+    </div>
+  </aside>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
