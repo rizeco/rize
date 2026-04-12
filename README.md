@@ -1,2 +1,0 @@
-# rize-
-Landing page
