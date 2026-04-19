@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIZE™ — Drop 001 · In The Wild</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Space+Mono:wght@400;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="nav__logo">
+        <img src="assets/images/logo-white.png" alt="Rize" class="nav__logo-img">
+      </div>
+      <div class="nav__links">
+        <a href="#drop001" class="nav__link">Drop 001</a>
+        <a href="#brand" class="nav__link">The Brand</a>
+        <a href="#wild" class="nav__link">In The Wild</a>
+        <a href="#vip" class="nav__link nav__link--cta">Grupo VIP</a>
+      </div>
+      <button class="nav__cart-btn" id="cartToggle" aria-label="Carrinho">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="nav__cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer__header">
+      <h3 class="cart-drawer__title">Carrinho</h3>
+      <button class="cart-drawer__close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-drawer__items" id="cartItems">
+      <p class="cart-drawer__empty">Seu carrinho está vazio.</p>
+    </div>
+    <div class="cart-drawer__footer" id="cartFooter" style="display:none">
+      <div class="cart-drawer__total">
+        <span>Total</span>
+        <span id="cartTotal">R$ 0,00</span>
+      </div>
+      <button class="btn btn--primary btn--full" id="checkoutBtn">Finalizar Compra</button>
+    </div>
+  </aside>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutOverlay"></div>
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="checkout-modal__header">
+      <h3 class="checkout-modal__title">Finalizar Pedido</h3>
+      <button class="checkout-modal__close" id="checkoutClose">✕</button>
+    </div>
+    <div class="checkout-modal__body">
+      <div class="checkout-summary" id="checkoutSummary"></div>
+
+      <form class="checkout-form" id="checkoutForm" autocomplete="off">
+        <h4 class="checkout-form__section">Dados Pessoais</h4>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nome completo *</label>
+            <input type="text" class="form-input" id="fieldNome" placeholder="Seu nome" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp *</label>
+            <input type="tel" class="form-input" id="fieldWhatsapp" placeholder="(48) 99999-9999" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">E-mail</label>
+            <input type="email" class="form-input" id="fieldEmail" placeholder="seu@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">CPF *</label>
+            <input type="text" class="form-input" id="fieldCpf" placeholder="000.000.000-00" maxlength="14" required>
+          </div>
+        </div>
+
+        <h4 class="checkout-form__section">Endereço de Entrega</h4>
+
+        <div class="form-row form-row--cep">
+          <div class="form-group form-group--cep">
+            <label class="form-label">CEP *</label>
+            <div class="cep-wrap">
+              <input type="text" class="form-input" id="fieldCep" placeholder="00000-000" maxlength="9" required>
+              <button type="button" class="cep-btn" id="cepBtn">Buscar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group form-group--grow">
+            <label class="form-label">Rua *</label>
+            <input type="text" class="form-input" id="fieldRua" placeholder="Nome da rua" required>
+          </div>
+          <div class="form-group form-group--num">
+            <label class="form-label">Número *</label>
+            <input type="text" class="form-input" id="fieldNumero" placeholder="Nº" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Complemento</label>
+            <input type="text" class="form-input" id="fieldComplemento" placeholder="Apto, bloco...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bairro *</label>
+            <input type="text" class="form-input" id="fieldBairro" placeholder="Bairro" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group form-group--grow">
+            <label class="form-label">Cidade *</label>
+            <input type="text" class="form-input" id="fieldCidade" placeholder="Cidade" required>
+          </div>
+          <div class="form-group form-group--uf">
+            <label class="form-label">UF *</label>
+            <input type="text" class="form-input" id="fieldUf" placeholder="SC" maxlength="2" required>
+          </div>
+        </div>
+
+        <h4 class="checkout-form__section">Observações</h4>
+        <div class="form-group">
+          <label class="form-label">Observações do pedido</label>
+          <textarea class="form-input form-textarea" id="fieldObs" placeholder="Alguma observação sobre o pedido?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--full checkout-form__submit">
+          Enviar Pedido pelo WhatsApp
+        </button>
+        <p class="checkout-form__notice">Você será redirecionado ao WhatsApp com todos os detalhes do pedido.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__noise"></div>
+    <div class="hero__content">
+      <div class="hero__left">
+        <p class="hero__eyebrow">Drop 001 · In The Wild</p>
+        <h1 class="hero__headline">
+          <span class="hero__headline-line">RIZE.</span>
+          <span class="hero__headline-line hero__headline-line--stroke">ALWAYS.</span>
+        </h1>
+        <p class="hero__sub">Não é roupa. É postura.</p>
+        <div class="hero__ctas">
+          <a href="#drop001" class="btn btn--primary">Shop Drop 001</a>
+          <a href="#brand" class="btn btn--ghost">The Brand</a>
+        </div>
+      </div>
+      <div class="hero__right">
+        <div class="hero__img-wrap">
+          <img src="assets/images/studio-black-1.jpg" alt="The Eyes Tee - Black" class="hero__img hero__img--front">
+          <img src="assets/images/studio-white-1.jpg" alt="The Eyes Tee - White" class="hero__img hero__img--back">
+        </div>
+        <div class="hero__badge">
+          <span class="hero__badge-text">DROP LIMITADO</span>
+          <span class="hero__badge-sub">SEM REPOSIÇÃO</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll-hint"><span>↓</span></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee__track">
+      <span class="marquee__item">RIZE. ALWAYS. <span class="marquee__dot"></span></span>
+      <span class="marquee__item">DROP 001 · IN THE WILD <span class="marquee__dot"></span></span>
+      <span class="marquee__item">SEM REPOSIÇÃO <span class="marquee__dot"></span></span>
+      <span class="marquee__item">HEAVYWEIGHT 340G <span class="marquee__dot"></span></span>
+      <span class="marquee__item">OVERSIZED FIT <span class="marquee__dot"></span></span>
+      <span class="marquee__item">XEROX EYE PRINT <span class="marquee__dot"></span></span>
+      <span class="marquee__item">RIZE. ALWAYS. <span class="marquee__dot"></span></span>
+      <span class="marquee__item">DROP 001 · IN THE WILD <span class="marquee__dot"></span></span>
+      <span class="marquee__item">SEM REPOSIÇÃO <span class="marquee__dot"></span></span>
+      <span class="marquee__item">HEAVYWEIGHT 340G <span class="marquee__dot"></span></span>
+      <span class="marquee__item">OVERSIZED FIT <span class="marquee__dot"></span></span>
+      <span class="marquee__item">XEROX EYE PRINT <span class="marquee__dot"></span></span>
+    </div>
+  </div>
+
+  <!-- BRAND -->
+  <section class="brand" id="brand">
+    <div class="brand__inner">
+      <div class="brand__label">The Brand</div>
+      <div class="brand__content">
+        <div class="brand__left">
+          <h2 class="brand__headline">Quem sabe,<br>sabe.</h2>
+          <div class="brand__line"></div>
+        </div>
+        <div class="brand__right">
+          <p class="brand__text">
+            A Rize não foi criada pra todo mundo. Foi criada pra quem já está subindo. Em silêncio, sem plateia, sem parar.
+          </p>
+          <p class="brand__text">
+            A peça é o ponto de entrada.<br>
+            A mentalidade é o produto real.
+          </p>
+        </div>
+      </div>
+
+      <div class="brand__flip-grid">
+
+        <div class="flip-card-container">
+          <div class="flip-card">
+            <div class="card-front">
+              <figure>
+                <div class="img-bg"></div>
+                <img src="assets/images/creative-black-1.jpg" alt="Creative Black">
+                <figcaption>The Eyes Tee</figcaption>
+              </figure>
+              <ul>
+                <li>Heavyweight 340g</li>
+                <li>Oversized fit</li>
+                <li>Xerox eye print</li>
+                <li>100% algodão</li>
+                <li>Drop 001</li>
+              </ul>
+            </div>
+            <div class="card-back">
+              <figure>
+                <div class="img-bg"></div>
+                <img src="assets/images/detail-black-1.jpg" alt="Detail Black">
+              </figure>
+              <button onclick="document.querySelector('#drop001').scrollIntoView({behavior:'smooth'})">Ver produto</button>
+              <div class="design-container">
+                <span class="design design--1"></span><span class="design design--2"></span>
+                <span class="design design--3"></span><span class="design design--4"></span>
+                <span class="design design--5"></span><span class="design design--6"></span>
+                <span class="design design--7"></span><span class="design design--8"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card-container">
+          <div class="flip-card">
+            <div class="card-front">
+              <figure>
+                <div class="img-bg"></div>
+                <img src="assets/images/shirt-black-1.jpg" alt="Shirt Black">
+                <figcaption>Preto · R$ 179,90</figcaption>
+              </figure>
+              <ul>
+                <li>Cor: Preto</li>
+                <li>Gola careca</li>
+                <li>Silk frontal</li>
+                <li>Lavagem a frio</li>
+                <li>Sem reposição</li>
+              </ul>
+            </div>
+            <div class="card-back">
+              <figure>
+                <div class="img-bg"></div>
+                <img src="assets/images/studio-black-1.jpg" alt="Studio Black">
+              </figure>
+              <button onclick="document.querySelector('#drop001').scrollIntoView({behavior:'smooth'})">Comprar agora</button>
+              <div class="design-container">
+                <span class="design design--1"></span><span class="design design--2"></span>
+                <span class="design design--3"></span><span class="design design--4"></span>
+                <span class="design design--5"></span><span class="design design--6"></span>
+                <span class="design design--7"></span><span class="design design--8"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card-container">
+          <div class="flip-card">
+            <div class="card-front">
+              <figure>
+                <div class="img-bg"></div>
+                <img src="assets/images/creative-white-1.jpg" alt="Creative White">
+                <figcaption>The Eyes Tee</figcaption>
+              </figure>
+              <ul>
+                <li>Heavyweight 340g</li>
+                <li>Oversized fit</li>
+                <li>Xerox eye print</li>
+                <li>100% algodão</li>
+                <li>Drop 001</li>
+              </ul>
+            </div>
+            <div class="card-back">
+              <figure>
+                <div class="img-bg"></div>
+                <img src="assets/images/detail-white-1.jpg" alt="Detail White">
+              </figure>
+              <button onclick="document.querySelector('#drop001').scrollIntoView({behavior:'smooth'})">Ver produto</button>
+              <div class="design-container">
+                <span class="design design--1"></span><span class="design design--2"></span>
+                <span class="design design--3"></span><span class="design design--4"></span>
+                <span class="design design--5"></span><span class="design design--6"></span>
+                <span class="design design--7"></span><span class="design design--8"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card-container">
+          <div class="flip-card">
+            <div class="card-front">
+              <figure>
+                <div class="img-bg"></div>
+                <img src="assets/images/shirt-white-1.jpg" alt="Shirt White">
+                <figcaption>Branco · R$ 179,90</figcaption>
+              </figure>
+              <ul>
+                <li>Cor: Branco</li>
+                <li>Gola careca</li>
+                <li>Silk frontal</li>
+                <li>Lavagem a frio</li>
+                <li>Sem reposição</li>
+              </ul>
+            </div>
+            <div class="card-back">
+              <figure>
+                <div class="img-bg"></div>
+                <img src="assets/images/studio-white-1.jpg" alt="Studio White">
+              </figure>
+              <button onclick="document.querySelector('#drop001').scrollIntoView({behavior:'smooth'})">Comprar agora</button>
+              <div class="design-container">
+                <span class="design design--1"></span><span class="design design--2"></span>
+                <span class="design design--3"></span><span class="design design--4"></span>
+                <span class="design design--5"></span><span class="design design--6"></span>
+                <span class="design design--7"></span><span class="design design--8"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DROP BANNER -->
+  <section class="drop-banner">
+    <div class="drop-banner__inner">
+      <div class="drop-banner__left">
+        <p class="drop-banner__eyebrow">Drop 001</p>
+        <h2 class="drop-banner__headline">In The Wild</h2>
+      </div>
+      <div class="drop-banner__right">
+        <p class="drop-banner__notice">DROP LIMITADO. SEM REPOSIÇÃO. SEM EXCEÇÕES.</p>
+        <p class="drop-banner__sub">Duas peças. Uma postura.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN THE WILD GALLERY -->
+  <section class="wild" id="wild">
+    <div class="wild__grid">
+      <div class="wild__item wild__item--tall">
+        <img src="assets/images/shirt-black-1.jpg" alt="Black Tee">
+      </div>
+      <div class="wild__item">
+        <img src="assets/images/creative-black-2.jpg" alt="Creative Black">
+      </div>
+      <div class="wild__item">
+        <img src="assets/images/creative-white-2.jpg" alt="Creative White">
+      </div>
+      <div class="wild__item wild__item--tall">
+        <img src="assets/images/shirt-white-1.jpg" alt="White Tee">
+      </div>
+      <div class="wild__item wild__item--wide">
+        <img src="assets/images/detail-black-2.jpg" alt="Detail Black">
+      </div>
+      <div class="wild__item wild__item--wide">
+        <img src="assets/images/detail-white-2.jpg" alt="Detail White">
+      </div>
+      <div class="wild__item">
+        <img src="assets/images/studio-black-2.jpg" alt="Camisa Preta no Cabide">
+      </div>
+      <div class="wild__item">
+        <img src="assets/images/studio-white-2.jpg" alt="Camisa Branca no Cabide">
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="drop001">
+    <div class="products__inner">
+      <div class="products__header">
+        <p class="products__eyebrow">In The Wild</p>
+        <h2 class="products__headline">Duas peças.<br>Uma postura.</h2>
+      </div>
+
+      <div class="products__grid">
+
+        <!-- BLACK TEE -->
+        <div class="product-card" data-product="black">
+          <div class="product-card__gallery">
+            <div class="product-card__imgs">
+              <img src="assets/images/studio-black-1.jpg" alt="The Eyes Tee Black" class="product-card__img product-card__img--active" data-idx="0">
+              <img src="assets/images/detail-black-1.jpg" alt="Detail Black" class="product-card__img" data-idx="1">
+              <img src="assets/images/shirt-black-2.jpg" alt="Black Shirt" class="product-card__img" data-idx="2">
+              <img src="assets/images/creative-black-1.jpg" alt="Creative Black" class="product-card__img" data-idx="3">
+            </div>
+            <div class="product-card__thumbs">
+              <button class="product-card__thumb product-card__thumb--active" data-target="0" data-product="black">
+                <img src="assets/images/studio-black-1.jpg" alt="">
+              </button>
+              <button class="product-card__thumb" data-target="1" data-product="black">
+                <img src="assets/images/detail-black-1.jpg" alt="">
+              </button>
+              <button class="product-card__thumb" data-target="2" data-product="black">
+                <img src="assets/images/shirt-black-2.jpg" alt="">
+              </button>
+              <button class="product-card__thumb" data-target="3" data-product="black">
+                <img src="assets/images/creative-black-1.jpg" alt="">
+              </button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <div class="product-card__tag">THE EYES TEE</div>
+            <h3 class="product-card__name">The Eyes Tee<br><span>Preto</span></h3>
+            <p class="product-card__specs">Heavyweight 340g · Oversized · Xerox eye print</p>
+            <div class="product-card__price">R$ 179,90</div>
+            <div class="product-card__sizes">
+              <p class="product-card__label">Tamanho</p>
+              <div class="size-selector">
+                <button class="size-btn" data-size="P">P</button>
+                <button class="size-btn" data-size="M">M</button>
+                <button class="size-btn size-btn--active" data-size="G">G</button>
+                <button class="size-btn" data-size="GG">GG</button>
+              </div>
+            </div>
+            <div class="product-card__qty">
+              <p class="product-card__label">Quantidade</p>
+              <div class="qty-selector">
+                <button class="qty-btn qty-btn--minus">−</button>
+                <span class="qty-value">1</span>
+                <button class="qty-btn qty-btn--plus">+</button>
+              </div>
+            </div>
+            <button class="btn btn--primary btn--full product-card__add" data-product-name="The Eyes Tee Preto" data-product-price="179.90">
+              Adicionar ao Carrinho
+            </button>
+            <p class="product-card__notice">Drop limitado · Sem reposição · Sem exceções</p>
+          </div>
+        </div>
+
+        <!-- WHITE TEE -->
+        <div class="product-card" data-product="white">
+          <div class="product-card__gallery">
+            <div class="product-card__imgs">
+              <img src="assets/images/studio-white-1.jpg" alt="The Eyes Tee White" class="product-card__img product-card__img--active" data-idx="0">
+              <img src="assets/images/detail-white-1.jpg" alt="Detail White" class="product-card__img" data-idx="1">
+              <img src="assets/images/shirt-white-2.jpg" alt="White Shirt" class="product-card__img" data-idx="2">
+              <img src="assets/images/creative-white-1.jpg" alt="Creative White" class="product-card__img" data-idx="3">
+            </div>
+            <div class="product-card__thumbs">
+              <button class="product-card__thumb product-card__thumb--active" data-target="0" data-product="white">
+                <img src="assets/images/studio-white-1.jpg" alt="">
+              </button>
+              <button class="product-card__thumb" data-target="1" data-product="white">
+                <img src="assets/images/detail-white-1.jpg" alt="">
+              </button>
+              <button class="product-card__thumb" data-target="2" data-product="white">
+                <img src="assets/images/shirt-white-2.jpg" alt="">
+              </button>
+              <button class="product-card__thumb" data-target="3" data-product="white">
+                <img src="assets/images/creative-white-1.jpg" alt="">
+              </button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <div class="product-card__tag">THE EYES TEE</div>
+            <h3 class="product-card__name">The Eyes Tee<br><span>Branco</span></h3>
+            <p class="product-card__specs">Heavyweight 340g · Oversized · Xerox eye print</p>
+            <div class="product-card__price">R$ 179,90</div>
+            <div class="product-card__sizes">
+              <p class="product-card__label">Tamanho</p>
+              <div class="size-selector">
+                <button class="size-btn" data-size="P">P</button>
+                <button class="size-btn" data-size="M">M</button>
+                <button class="size-btn size-btn--active" data-size="G">G</button>
+                <button class="size-btn" data-size="GG">GG</button>
+              </div>
+            </div>
+            <div class="product-card__qty">
+              <p class="product-card__label">Quantidade</p>
+              <div class="qty-selector">
+                <button class="qty-btn qty-btn--minus">−</button>
+                <span class="qty-value">1</span>
+                <button class="qty-btn qty-btn--plus">+</button>
+              </div>
+            </div>
+            <button class="btn btn--primary btn--full product-card__add" data-product-name="The Eyes Tee Branco" data-product-price="179.90">
+              Adicionar ao Carrinho
+            </button>
+            <p class="product-card__notice">Drop limitado · Sem reposição · Sem exceções</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VIP -->
+  <section class="vip" id="vip">
+    <div class="vip__noise"></div>
+    <div class="vip__inner">
+      <div class="vip__left">
+        <p class="vip__eyebrow">Acesso Exclusivo</p>
+        <h2 class="vip__headline">Vip<br>Group</h2>
+        <p class="vip__sub">Grupo VIP</p>
+      </div>
+      <div class="vip__right">
+        <p class="vip__benefits-label">Group Benefits</p>
+        <ul class="vip__benefits">
+          <li class="vip__benefit"><span class="vip__benefit-icon">✦</span> Cupons antes de todo mundo.</li>
+          <li class="vip__benefit"><span class="vip__benefit-icon">✦</span> Drops com aviso antecipado.</li>
+          <li class="vip__benefit"><span class="vip__benefit-icon">✦</span> Nada mais. Nada menos.</li>
+        </ul>
+        <a href="https://wa.me/5548999999999?text=Quero+entrar+no+grupo+VIP+da+Rize" target="_blank" class="btn btn--primary">
+          Entrar no Grupo VIP
+        </a>
+        <p class="vip__disclaimer">Sem spam. Saída quando quiser.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__logo">
+        <img src="assets/images/logo-white.png" alt="Rize" class="footer__logo-img">
+      </div>
+      <p class="footer__copy">© 2026 Rize™ Streetwear</p>
+      <p class="footer__tagline">RIZE. ALWAYS.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
