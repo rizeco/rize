@@ -194,6 +194,15 @@ a { text-decoration: none; color: inherit; }
 .checkout-summary__item:last-child { border: none; }
 .checkout-summary__total { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 15px; font-weight: 700; margin-top: 12px; }
 
+.checkout-frete {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  padding: 11px 16px; margin-bottom: 24px;
+  font-family: var(--font-dm); font-size: 12px; color: var(--gray-300); letter-spacing: 0.04em;
+}
+.checkout-frete strong { color: var(--white); font-weight: 500; }
+.checkout-frete__icon { font-size: 15px; flex-shrink: 0; }
+
 /* Form */
 .checkout-form__section {
   font-family: var(--font-dm); font-size: 10px; letter-spacing: 0.18em;
@@ -397,7 +406,7 @@ figcaption {
 }
 
 ul {
-  padding-top: 52%; margin: 0 auto; width: 74%; height: 100%;
+  padding-top: 0%; margin: 0 auto; width: 74%; height: 100%;
   list-style: none; color: var(--white-1);
   display: flex; justify-content: center; align-items: center; flex-direction: column;
 }
@@ -542,27 +551,86 @@ li:not(:last-child)::after {
 .product-card__notice { font-family: var(--font-dm); font-size: 10px; color: var(--gray-500); letter-spacing: 0.07em; text-align: center; }
 
 /* ===================== VIP ===================== */
+/* ===================== VIP ===================== */
 .vip {
-  position: relative; padding: var(--section-pad) 0;
-  background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); overflow: hidden;
+  position: relative;
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
 }
 .vip__noise {
   position: absolute; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   background-size: 256px; opacity: 0.4; pointer-events: none;
 }
-.vip__inner {
-  position: relative; max-width: var(--max-w); margin: 0 auto; padding: 0 48px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+
+/* Layout: flex row, dois filhos lado a lado */
+.vip__wrap {
+  position: relative;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--section-pad) 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
 }
-.vip__eyebrow { font-family: var(--font-dm); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 14px; }
-.vip__headline { font-family: var(--font-display); font-size: clamp(60px, 7vw, 110px); font-weight: 900; line-height: 0.88; letter-spacing: -0.03em; }
-.vip__sub { font-family: var(--font-dm); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-500); margin-top: 18px; }
-.vip__benefits-label { font-family: var(--font-dm); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.09); }
-.vip__benefits { list-style: none; margin-bottom: 36px; }
-.vip__benefit { display: flex; align-items: center; gap: 14px; font-size: 15px; font-weight: 300; color: var(--gray-100); padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+/* Coluna esquerda: headline */
+.vip__col-left {
+  flex: 0 0 45%;
+  padding-right: 64px;
+}
+
+/* Divisor vertical */
+.vip__divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+/* Coluna direita: benefícios */
+.vip__col-right {
+  flex: 1;
+  padding-left: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.vip__eyebrow {
+  font-family: var(--font-dm); font-size: 11px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--gray-500); margin-bottom: 16px;
+}
+.vip__headline {
+  font-family: var(--font-display);
+  font-size: clamp(60px, 7vw, 110px);
+  font-weight: 900; line-height: 0.88; letter-spacing: -0.03em;
+}
+.vip__sub {
+  font-family: var(--font-dm); font-size: 11px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--gray-500); margin-top: 18px;
+}
+.vip__benefits-label {
+  font-family: var(--font-dm); font-size: 10px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--gray-500);
+  margin-bottom: 20px; padding-bottom: 14px; width: 100%;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+}
+.vip__benefits { list-style: none; width: 100%; margin-bottom: 36px; }
+.vip__benefit {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 15px; font-weight: 300; color: var(--gray-100);
+  padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
 .vip__benefit-icon { color: var(--white); font-size: 11px; flex-shrink: 0; }
-.vip__disclaimer { margin-top: 14px; font-family: var(--font-dm); font-size: 10px; color: var(--gray-500); letter-spacing: 0.1em; }
+.vip__disclaimer {
+  margin-top: 14px; font-family: var(--font-dm); font-size: 10px;
+  color: var(--gray-500); letter-spacing: 0.1em;
+}
+
 
 /* ===================== FOOTER ===================== */
 .footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.07); padding: 44px 0; }
@@ -611,11 +679,13 @@ li:not(:last-child)::after {
 
   .products__inner { padding: 0 24px; }
   .product-card { grid-template-columns: 1fr; padding: 20px; }
-
-  .vip__inner { padding: 0 24px; grid-template-columns: 1fr; gap: 48px; }
   .footer__inner { padding: 0 24px; flex-direction: column; gap: 18px; text-align: center; }
 
   .cart-drawer { width: 100vw; }
+  .vip__wrap { flex-direction: column; padding: 64px 24px; gap: 48px; }
+  .vip__col-left { flex: none; width: 100%; padding-right: 0; }
+  .vip__col-right { padding-left: 0; width: 100%; }
+  .vip__divider { display: none; }
 }
 
 @media (max-width: 600px) {
@@ -624,3 +694,11 @@ li:not(:last-child)::after {
   .form-row { grid-template-columns: 1fr; }
   .form-group--num, .form-group--uf { width: 100%; }
 }
+
+/* ===== PERFORMANCE HINTS ===== */
+.marquee__track { will-change: transform; }
+.hero__img { will-change: opacity; }
+.flip-card { will-change: transform; }
+.cart-drawer { will-change: transform; }
+.checkout-modal { will-change: opacity, transform; }
+.wild__item img { will-change: transform; }

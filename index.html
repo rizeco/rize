@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RIZE™ — Drop 001 · In The Wild</title>
+  <title>RIZE™</title>
+  <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" as="image" href="assets/images/studio-black-1.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Space+Mono:wght@400;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Space+Mono:wght@400;700&family=DM+Mono:wght@300;400;500&display=swap&font-display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -58,6 +60,10 @@
     </div>
     <div class="checkout-modal__body">
       <div class="checkout-summary" id="checkoutSummary"></div>
+      <div class="checkout-frete">
+        <span class="checkout-frete__icon">🚚</span>
+        <span>Frete para todo o Brasil: <strong>máximo R$ 9,90</strong></span>
+      </div>
 
       <form class="checkout-form" id="checkoutForm" autocomplete="off">
         <h4 class="checkout-form__section">Dados Pessoais</h4>
@@ -218,7 +224,7 @@
             <div class="card-front">
               <figure>
                 <div class="img-bg"></div>
-                <img src="assets/images/creative-black-1.jpg" alt="Creative Black">
+                <img loading="lazy" src="assets/images/creative-black-1.jpg" alt="Creative Black">
                 <figcaption>The Eyes Tee</figcaption>
               </figure>
               <ul>
@@ -232,7 +238,7 @@
             <div class="card-back">
               <figure>
                 <div class="img-bg"></div>
-                <img src="assets/images/detail-black-1.jpg" alt="Detail Black">
+                <img loading="lazy" src="assets/images/detail-black-1.jpg" alt="Detail Black">
               </figure>
               <button onclick="document.querySelector('#drop001').scrollIntoView({behavior:'smooth'})">Ver produto</button>
               <div class="design-container">
@@ -250,7 +256,7 @@
             <div class="card-front">
               <figure>
                 <div class="img-bg"></div>
-                <img src="assets/images/shirt-black-1.jpg" alt="Shirt Black">
+                <img loading="lazy" src="assets/images/shirt-black-1.jpg" alt="Shirt Black">
                 <figcaption>Preto · R$ 179,90</figcaption>
               </figure>
               <ul>
@@ -282,7 +288,7 @@
             <div class="card-front">
               <figure>
                 <div class="img-bg"></div>
-                <img src="assets/images/creative-white-1.jpg" alt="Creative White">
+                <img loading="lazy" src="assets/images/creative-white-1.jpg" alt="Creative White">
                 <figcaption>The Eyes Tee</figcaption>
               </figure>
               <ul>
@@ -296,7 +302,7 @@
             <div class="card-back">
               <figure>
                 <div class="img-bg"></div>
-                <img src="assets/images/detail-white-1.jpg" alt="Detail White">
+                <img loading="lazy" src="assets/images/detail-white-1.jpg" alt="Detail White">
               </figure>
               <button onclick="document.querySelector('#drop001').scrollIntoView({behavior:'smooth'})">Ver produto</button>
               <div class="design-container">
@@ -314,7 +320,7 @@
             <div class="card-front">
               <figure>
                 <div class="img-bg"></div>
-                <img src="assets/images/shirt-white-1.jpg" alt="Shirt White">
+                <img loading="lazy" src="assets/images/shirt-white-1.jpg" alt="Shirt White">
                 <figcaption>Branco · R$ 179,90</figcaption>
               </figure>
               <ul>
@@ -363,28 +369,28 @@
   <section class="wild" id="wild">
     <div class="wild__grid">
       <div class="wild__item wild__item--tall">
-        <img src="assets/images/shirt-black-1.jpg" alt="Black Tee">
+        <img loading="lazy" src="assets/images/shirt-black-1.jpg" alt="Black Tee">
       </div>
       <div class="wild__item">
-        <img src="assets/images/creative-black-2.jpg" alt="Creative Black">
+        <img loading="lazy" src="assets/images/creative-black-2.jpg" alt="Creative Black">
       </div>
       <div class="wild__item">
-        <img src="assets/images/creative-white-2.jpg" alt="Creative White">
+        <img loading="lazy" src="assets/images/creative-white-2.jpg" alt="Creative White">
       </div>
       <div class="wild__item wild__item--tall">
-        <img src="assets/images/shirt-white-1.jpg" alt="White Tee">
+        <img loading="lazy" src="assets/images/shirt-white-1.jpg" alt="White Tee">
       </div>
       <div class="wild__item wild__item--wide">
-        <img src="assets/images/detail-black-2.jpg" alt="Detail Black">
+        <img loading="lazy" src="assets/images/detail-black-2.jpg" alt="Detail Black">
       </div>
       <div class="wild__item wild__item--wide">
-        <img src="assets/images/detail-white-2.jpg" alt="Detail White">
+        <img loading="lazy" src="assets/images/detail-white-2.jpg" alt="Detail White">
       </div>
       <div class="wild__item">
-        <img src="assets/images/studio-black-2.jpg" alt="Camisa Preta no Cabide">
+        <img loading="lazy" src="assets/images/studio-black-2.jpg" alt="Camisa Preta no Cabide">
       </div>
       <div class="wild__item">
-        <img src="assets/images/studio-white-2.jpg" alt="Camisa Branca no Cabide">
+        <img loading="lazy" src="assets/images/studio-white-2.jpg" alt="Camisa Branca no Cabide">
       </div>
     </div>
   </section>
@@ -404,22 +410,22 @@
           <div class="product-card__gallery">
             <div class="product-card__imgs">
               <img src="assets/images/studio-black-1.jpg" alt="The Eyes Tee Black" class="product-card__img product-card__img--active" data-idx="0">
-              <img src="assets/images/detail-black-1.jpg" alt="Detail Black" class="product-card__img" data-idx="1">
-              <img src="assets/images/shirt-black-2.jpg" alt="Black Shirt" class="product-card__img" data-idx="2">
-              <img src="assets/images/creative-black-1.jpg" alt="Creative Black" class="product-card__img" data-idx="3">
+              <img loading="lazy" src="assets/images/detail-black-1.jpg" alt="Detail Black" class="product-card__img" data-idx="1">
+              <img loading="lazy" src="assets/images/shirt-black-2.jpg" alt="Black Shirt" class="product-card__img" data-idx="2">
+              <img loading="lazy" src="assets/images/creative-black-1.jpg" alt="Creative Black" class="product-card__img" data-idx="3">
             </div>
             <div class="product-card__thumbs">
               <button class="product-card__thumb product-card__thumb--active" data-target="0" data-product="black">
                 <img src="assets/images/studio-black-1.jpg" alt="">
               </button>
               <button class="product-card__thumb" data-target="1" data-product="black">
-                <img src="assets/images/detail-black-1.jpg" alt="">
+                <img loading="lazy" src="assets/images/detail-black-1.jpg" alt="">
               </button>
               <button class="product-card__thumb" data-target="2" data-product="black">
-                <img src="assets/images/shirt-black-2.jpg" alt="">
+                <img loading="lazy" src="assets/images/shirt-black-2.jpg" alt="">
               </button>
               <button class="product-card__thumb" data-target="3" data-product="black">
-                <img src="assets/images/creative-black-1.jpg" alt="">
+                <img loading="lazy" src="assets/images/creative-black-1.jpg" alt="">
               </button>
             </div>
           </div>
@@ -457,22 +463,22 @@
           <div class="product-card__gallery">
             <div class="product-card__imgs">
               <img src="assets/images/studio-white-1.jpg" alt="The Eyes Tee White" class="product-card__img product-card__img--active" data-idx="0">
-              <img src="assets/images/detail-white-1.jpg" alt="Detail White" class="product-card__img" data-idx="1">
-              <img src="assets/images/shirt-white-2.jpg" alt="White Shirt" class="product-card__img" data-idx="2">
-              <img src="assets/images/creative-white-1.jpg" alt="Creative White" class="product-card__img" data-idx="3">
+              <img loading="lazy" src="assets/images/detail-white-1.jpg" alt="Detail White" class="product-card__img" data-idx="1">
+              <img loading="lazy" src="assets/images/shirt-white-2.jpg" alt="White Shirt" class="product-card__img" data-idx="2">
+              <img loading="lazy" src="assets/images/creative-white-1.jpg" alt="Creative White" class="product-card__img" data-idx="3">
             </div>
             <div class="product-card__thumbs">
               <button class="product-card__thumb product-card__thumb--active" data-target="0" data-product="white">
                 <img src="assets/images/studio-white-1.jpg" alt="">
               </button>
               <button class="product-card__thumb" data-target="1" data-product="white">
-                <img src="assets/images/detail-white-1.jpg" alt="">
+                <img loading="lazy" src="assets/images/detail-white-1.jpg" alt="">
               </button>
               <button class="product-card__thumb" data-target="2" data-product="white">
-                <img src="assets/images/shirt-white-2.jpg" alt="">
+                <img loading="lazy" src="assets/images/shirt-white-2.jpg" alt="">
               </button>
               <button class="product-card__thumb" data-target="3" data-product="white">
-                <img src="assets/images/creative-white-1.jpg" alt="">
+                <img loading="lazy" src="assets/images/creative-white-1.jpg" alt="">
               </button>
             </div>
           </div>
@@ -512,13 +518,20 @@
   <!-- VIP -->
   <section class="vip" id="vip">
     <div class="vip__noise"></div>
-    <div class="vip__inner">
-      <div class="vip__left">
+    <div class="vip__wrap">
+
+      <!-- Coluna Esquerda: Headline -->
+      <div class="vip__col-left">
         <p class="vip__eyebrow">Acesso Exclusivo</p>
         <h2 class="vip__headline">Vip<br>Group</h2>
         <p class="vip__sub">Grupo VIP</p>
       </div>
-      <div class="vip__right">
+
+      <!-- Divisor vertical -->
+      <div class="vip__divider"></div>
+
+      <!-- Coluna Direita: Benefícios + CTA -->
+      <div class="vip__col-right">
         <p class="vip__benefits-label">Group Benefits</p>
         <ul class="vip__benefits">
           <li class="vip__benefit"><span class="vip__benefit-icon">✦</span> Cupons antes de todo mundo.</li>
@@ -530,6 +543,7 @@
         </a>
         <p class="vip__disclaimer">Sem spam. Saída quando quiser.</p>
       </div>
+
     </div>
   </section>
 
